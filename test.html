@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		li{
+			display: none;
+		}
+		.activeli{
+			display: block;
+		}
+			
+		</style>
+	</head>
+	<body>
+		<ul>电视剧
+			<li>鹤唳华亭</li>
+			<li>仙剑奇侠传</li>
+			<li>诛仙</li>
+		</ul>
+		<ul>电影
+			<li>钢铁侠</li>
+			<li>大鱼海棠</li>
+			<li>阿甘正传</li>
+		</ul>
+		<ul>小说
+			<li>红楼梦</li>
+			<li>倚天屠龙记</li>
+			<li>神雕侠侣</li>
+		</ul>
+	</body>
+	<script>
+	let oul=document.getElementsByTagName("ul");
+	for(let j=0;j<oul.length;j++){
+		oul[j].addEventListener("click",function(){
+			let son=Array.from(this.childNodes).filter(item=>item.nodeName.toLowerCase()=='li');
+			son.forEach(item=>{
+				// 也可以直接用item.classList.contains()
+				if(!Array.from(item.classList).some(item=>item==="activeli")){
+					// item.setAttribute('class','jjj')
+					item.classList.add('activeli');
+				}else{
+					item.classList.remove('activeli')
+				}
+			})
+		})
+	}
+	</script>
+</html>
+
